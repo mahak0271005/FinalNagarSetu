@@ -1,139 +1,381 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useCivicData } from '../hooks/useCivicData';
-import { registerUser } from "../services/authService";
-import { User, Mail, Lock, UserPlus, MapPin } from 'lucide-react';
+// import React, { useState } from 'react';
+// import { useNavigate, Link } from 'react-router-dom';
+// import { useCivicData } from '../hooks/useCivicData';
+// import { registerUser } from "../services/authService";
+// import { User, Mail, Lock, UserPlus, MapPin } from 'lucide-react';
 
-export default function Signup() {
-  const { switchUserRole } = useCivicData();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [ward, setWard] = useState('Ward 12 - Vasant Kunj');
-  const navigate = useNavigate();
+// export default function Signup() {
+//   const { switchUserRole } = useCivicData();
+//   const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const [ward, setWard] = useState('Ward 12 - Vasant Kunj');
+//   const navigate = useNavigate();
 
-  const handleSignup = async (e) => {
-  e.preventDefault();
+//   const handleSignup = async (e) => {
+//   e.preventDefault();
 
-  try {
-    const response = await registerUser({
-      name,
-      email,
-      password
-    });
+//   try {
+//     const response = await registerUser({
+//       name,
+//       email,
+//       password
+//     });
 
     
 
-    const token = response.data?.token;
+//     const token = response.data?.token;
 
-    if (token) {
-      localStorage.setItem("token", token);
+//     if (token) {
+//       localStorage.setItem("token", token);
+//     }
+
+//     switchUserRole("citizen");
+
+//     navigate("/dashboard");
+
+//   } catch (error) {
+//     console.error(error);
+//     alert(error.response?.data || "Registration Failed");
+//   }
+// };
+
+//   return (
+//     <div className="glass-panel p-8 rounded-3xl border border-white/60 shadow-premium relative bg-white/70">
+//       <div className="text-center mb-8">
+//         <h2 className="text-2xl font-bold font-outfit text-slate-800">Join NagarSetu</h2>
+//         <p className="text-xs text-slate-500 mt-1">Connect with your local community</p>
+//       </div>
+
+//       <form onSubmit={handleSignup} className="space-y-4">
+//         {/* Full Name */}
+//         <div>
+//           <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Full Name</label>
+//           <div className="relative">
+//             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+//               <User className="w-4 h-4" />
+//             </span>
+//             <input
+//               type="text"
+//               value={name}
+//               onChange={(e) => setName(e.target.value)}
+//               placeholder="Aarav Sharma"
+//               required
+//               className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+//             />
+//           </div>
+//         </div>
+
+//         {/* Email Address */}
+//         <div>
+//           <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Email Address</label>
+//           <div className="relative">
+//             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+//               <Mail className="w-4 h-4" />
+//             </span>
+//             <input
+//               type="email"
+//               value={email}
+//               onChange={(e) => setEmail(e.target.value)}
+//               placeholder="aarav@example.com"
+//               required
+//               className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+//             />
+//           </div>
+//         </div>
+
+//         {/* Ward Selection */}
+//         <div>
+//           <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Municipal Ward</label>
+//           <div className="relative">
+//             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+//               <MapPin className="w-4 h-4" />
+//             </span>
+//             <select
+//               value={ward}
+//               onChange={(e) => setWard(e.target.value)}
+//               className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors appearance-none shadow-soft cursor-pointer"
+//             >
+//               <option value="Ward 12 - Vasant Kunj">Ward 12 - Vasant Kunj</option>
+//               <option value="Ward 4 - Dwarka">Ward 4 - Dwarka</option>
+//               <option value="Ward 9 - Saket">Ward 9 - Saket</option>
+//               <option value="Ward 15 - Rohini">Ward 15 - Rohini</option>
+//             </select>
+//           </div>
+//         </div>
+
+//         {/* Password */}
+//         <div>
+//           <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Password</label>
+//           <div className="relative">
+//             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+//               <Lock className="w-4 h-4" />
+//             </span>
+//             <input
+//               type="password"
+//               value={password}
+//               onChange={(e) => setPassword(e.target.value)}
+//               placeholder="••••••••"
+//               required
+//               className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+//             />
+//           </div>
+//         </div>
+
+//         {/* Action button */}
+//         <button
+//           type="submit"
+//           className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-violet to-brand-purple hover:opacity-90 text-white font-bold text-xs shadow-glow-violet transition-all flex items-center justify-center gap-2 shimmer-btn mt-6"
+//         >
+//           <UserPlus className="w-4 h-4 text-white" /> Register Account
+//         </button>
+//       </form>
+
+//       <div className="mt-6 text-center text-xs text-slate-500">
+//         Already registered?{' '}
+//         <Link to="/login" className="text-brand-violet hover:text-brand-violet/85 font-semibold">Sign in instead</Link>
+//       </div>
+//     </div>
+//   );
+// }
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useCivicData } from "../hooks/useCivicData";
+import { registerUser } from "../services/authService";
+import {
+  User,
+  Mail,
+  Lock,
+  UserPlus,
+  MapPin,
+  ShieldCheck,
+} from "lucide-react";
+
+export default function Signup() {
+  const { switchUserRole } = useCivicData();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [ward, setWard] = useState("Ward 12 - Vasant Kunj");
+
+  const [otp, setOtp] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleSendOtp = async () => {
+    if (!name || !email || !password) {
+      alert("Please fill all fields first");
+      return;
     }
 
-    switchUserRole("citizen");
+    setLoading(true);
 
-    navigate("/dashboard");
+    setTimeout(() => {
+      setOtpSent(true);
+      setLoading(false);
+      alert("OTP sent successfully");
+    }, 1200);
+  };
 
-  } catch (error) {
-    console.error(error);
-    alert(error.response?.data || "Registration Failed");
-  }
-};
+  const handleSignup = async (e) => {
+    e.preventDefault();
+
+    if (!otp) {
+      alert("Please enter OTP");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await registerUser({
+        name,
+        email,
+        password,
+        ward,
+        otp,
+      });
+
+      const token = response?.data?.token;
+
+      if (token) {
+        localStorage.setItem("token", token);
+      }
+
+      switchUserRole("citizen");
+
+      navigate("/dashboard");
+    } catch (error) {
+      console.error(error);
+
+      alert(
+        error?.response?.data?.message ||
+          "Registration Failed"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="glass-panel p-8 rounded-3xl border border-white/60 shadow-premium relative bg-white/70">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold font-outfit text-slate-800">Join NagarSetu</h2>
-        <p className="text-xs text-slate-500 mt-1">Connect with your local community</p>
+        <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-r from-brand-violet to-brand-purple flex items-center justify-center mb-4 shadow-glow-violet">
+          <ShieldCheck className="w-7 h-7 text-white" />
+        </div>
+
+        <h2 className="text-2xl font-bold font-outfit text-slate-800">
+          Join NagarSetu
+        </h2>
+
+        <p className="text-xs text-slate-500 mt-1">
+          Create your account and verify with OTP
+        </p>
       </div>
 
       <form onSubmit={handleSignup} className="space-y-4">
+
         {/* Full Name */}
         <div>
-          <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Full Name</label>
+          <label className="text-[10px] font-bold uppercase text-black uppercasetracking-widest block mb-2">
+            Full Name
+          </label>
+
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-black">
               <User className="w-4 h-4" />
             </span>
+
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Aarav Sharma"
               required
-              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 shadow-soft"
             />
           </div>
         </div>
 
-        {/* Email Address */}
-        <div>
-          <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Email Address</label>
+        {/* Email */}
+        <div><label className="text-[10px] font-bold text-black uppercase tracking-widest block mb-2">
+  Email Address
+</label>
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-black">
               <Mail className="w-4 h-4" />
             </span>
+
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="aarav@example.com"
               required
-              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 shadow-soft"
             />
           </div>
         </div>
 
-        {/* Ward Selection */}
+        {/* Ward */}
         <div>
-          <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Municipal Ward</label>
+          <label className="text-[10px] font-bold uppercase text-black uppercase tracking-widest block mb-2">
+            Municipal Ward
+          </label>
+
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-black">
               <MapPin className="w-4 h-4" />
             </span>
+
             <select
               value={ward}
               onChange={(e) => setWard(e.target.value)}
-              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors appearance-none shadow-soft cursor-pointer"
+              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 appearance-none shadow-soft"
             >
-              <option value="Ward 12 - Vasant Kunj">Ward 12 - Vasant Kunj</option>
-              <option value="Ward 4 - Dwarka">Ward 4 - Dwarka</option>
-              <option value="Ward 9 - Saket">Ward 9 - Saket</option>
-              <option value="Ward 15 - Rohini">Ward 15 - Rohini</option>
+              <option>Ward 12 - Vasant Kunj</option>
+              <option>Ward 4 - Dwarka</option>
+              <option>Ward 9 - Saket</option>
+              <option>Ward 15 - Rohini</option>
             </select>
           </div>
         </div>
 
         {/* Password */}
         <div>
-          <label className="text-[10px] font-bold text-slate-455 uppercase tracking-widest block mb-2 font-mono">Password</label>
+          <label className="text-[10px] font-bold uppercase text-black uppercase tracking-widest block mb-2">
+            Password
+          </label>
+
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+            <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-400">
               <Lock className="w-4 h-4" />
             </span>
+
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               required
-              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 shadow-soft"
             />
           </div>
         </div>
 
-        {/* Action button */}
-        <button
-          type="submit"
-          className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-violet to-brand-purple hover:opacity-90 text-white font-bold text-xs shadow-glow-violet transition-all flex items-center justify-center gap-2 shimmer-btn mt-6"
-        >
-          <UserPlus className="w-4 h-4 text-white" /> Register Account
-        </button>
+        {/* OTP */}
+        {otpSent && (
+          <div>
+            <label className="text-[10px] font-bold uppercase tracking-widest block mb-2">
+              OTP Verification
+            </label>
+
+            <input
+              type="text"
+              maxLength={6}
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              placeholder="Enter 6 digit OTP"
+              className="w-full bg-white/80 border border-purple-100 text-slate-800 px-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 shadow-soft"
+            />
+          </div>
+        )}
+
+        {/* Buttons */}
+        {!otpSent ? (
+          <button
+            type="button"
+            onClick={handleSendOtp}
+            disabled={loading}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-violet to-brand-purple text-white font-bold text-xs mt-6"
+          >
+            {loading ? "Sending OTP..." : "Send OTP"}
+          </button>
+        ) : (
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold text-xs mt-6 flex items-center justify-center gap-2"
+          >
+            <UserPlus className="w-4 h-4" />
+            {loading
+              ? "Creating Account..."
+              : "Verify OTP & Register"}
+          </button>
+        )}
       </form>
 
       <div className="mt-6 text-center text-xs text-slate-500">
-        Already registered?{' '}
-        <Link to="/login" className="text-brand-violet hover:text-brand-violet/85 font-semibold">Sign in instead</Link>
+        Already registered?{" "}
+        <Link
+          to="/login"
+          className="text-brand-violet hover:text-brand-violet/85 font-semibold"
+        >
+          Sign in instead
+        </Link>
       </div>
     </div>
   );

@@ -47,14 +47,14 @@ export default function Login() {
   return (
     <div className="glass-panel p-8 rounded-3xl border border-white/60 shadow-premium relative bg-white/70">
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold font-outfit text-slate-800">Welcome Back</h2>
-        <p className="text-xs text-slate-500 mt-1">Access the NagarSetu Smart-City hub</p>
+        <h2 className="text-2xl font-bold font-outfit text-black uppercase">Welcome Back</h2>
+        <p className="text-xs text-black uppercase mt-1">Access the NagarSetu Smart-City hub</p>
       </div>
 
       <form onSubmit={handleLogin} className="space-y-4">
         {/* Email Field */}
         <div>
-          <label className="text-[10px] font-bold text-slate-450 uppercase tracking-widest block mb-2 font-mono">Email Address</label>
+          <label className="text-[10px] font-bold black uppercase text-black uppercase tracking-widest block mb-2 font-mono">Email Address</label>
           <div className="relative">
             <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
               <Mail className="w-4 h-4" />
@@ -73,7 +73,7 @@ export default function Login() {
         {/* Password Field */}
         <div>
           <div className="flex justify-between items-center mb-2">
-            <label className="text-[10px] font-bold text-slate-450 uppercase tracking-widest block font-mono">Password</label>
+            <label className="text-[10px] font-bold black uppercase text-black uppercasetracking-widest block font-mono">Password</label>
             <a href="#" className="text-[10px] text-brand-violet hover:text-brand-violet/85 font-bold">Forgot?</a>
           </div>
           <div className="relative">
@@ -86,7 +86,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               required
-              className="w-full bg-white/80 border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
+              className="w-full bg-white/80 border border-purple-100 text-black pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors placeholder:text-slate-400 shadow-soft"
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ export default function Login() {
           type="submit"
           className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-violet to-brand-purple hover:opacity-90 text-white font-bold text-xs shadow-glow-violet transition-all flex items-center justify-center gap-2 shimmer-btn mt-6"
         >
-          <LogIn className="w-4 h-4 text-white" /> Sign In
+          <LogIn className="w-4 h-4 text-black" /> Sign In
         </button>
       </form>
 

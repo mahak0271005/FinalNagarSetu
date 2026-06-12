@@ -12,3 +12,10 @@ export const loginUser = (data) => {
 export const getToken = () => {
   return localStorage.getItem("token");
 };
+// export const sendOtp = (email) => {
+//   return api.post("/auth/send-otp", { email });
+// };
+
+// export const verifyOtp = (data) => {
+//   return api.post("/auth/verify-otp", data);
+// };

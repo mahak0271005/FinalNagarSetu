@@ -132,12 +132,12 @@ export default function LandingPage() {
           transition={{ duration: 0.5, delay: 0.24 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button
+          {/* <button
             onClick={() => navigate('/dashboard')}
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-violet to-brand-purple hover:from-brand-violet/90 hover:to-brand-purple/90 text-white font-bold text-xs shadow-glow-violet transition-all flex items-center justify-center gap-2 shimmer-btn"
           >
             Launch Civic Portal <ArrowRight className="w-4 h-4" />
-          </button>
+          </button> */}
           <button
             onClick={() => navigate('/signup')}
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-purple-50 border border-purple-100 text-slate-700 hover:text-slate-800 text-xs font-bold transition-all shadow-soft flex items-center justify-center gap-2"
@@ -147,7 +147,7 @@ export default function LandingPage() {
         </motion.div>
       </section>
 
-      {/* Live Statistics Section */}
+      {/* Live Statistics Section
       <section className="max-w-5xl mx-auto px-6 py-12 relative z-10">
         <motion.div
           variants={containerVariants}
@@ -165,7 +165,7 @@ export default function LandingPage() {
             </motion.div>
           ))}
         </motion.div>
-      </section>
+      </section> */}
 
       {/* How It Works - Visual Lifecycle Node */}
       <section className="max-w-5xl mx-auto px-6 py-20 relative z-10">
@@ -247,7 +247,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials
       <section className="max-w-5xl mx-auto px-6 py-20 relative z-10 border-t border-purple-100/50">
         <div className="text-center mb-16">
           <h2 className="text-2xl sm:text-4xl font-bold font-outfit text-slate-800 mb-4">Voice of the Citizens</h2>
@@ -308,7 +308,7 @@ export default function LandingPage() {
           </div>
 
         </div>
-      </section>
+      </section> */}
 
       {/* CTA bottom banner */}
       <section className="max-w-5xl mx-auto px-6 pb-24 relative z-10">

@@ -179,7 +179,7 @@ export default function ComplaintUpload() {
 
               {/* Sample list buttons */}
               <div className="space-y-2">
-                {sampleImages.map((img) => (
+                {/* {sampleImages.map((img) => (
                   <button
                     key={img.id}
                     onClick={() => handleSelectSample(img)}
@@ -189,7 +189,7 @@ export default function ComplaintUpload() {
                     <span>{img.title}</span>
                     <ChevronRight className="w-3.5 h-3.5 ml-auto text-slate-400" />
                   </button>
-                ))}
+                ))} */}
               </div>
             </div>
           ) : (
@@ -294,7 +294,7 @@ export default function ComplaintUpload() {
 
             {/* Row 3: Category & Priority */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
+              {/* <div>
                 <label className="text-[10px] font-bold text-slate-550 uppercase tracking-widest block mb-2 font-mono">AI Predicted Category</label>
                 <select
                   value={category}
@@ -306,11 +306,11 @@ export default function ComplaintUpload() {
                   <option value="Street Lighting">Street Lighting</option>
                   <option value="Water & Sewage">Water & Sewage</option>
                 </select>
-              </div>
+              </div> */}
 
-              <div>
-                <label className="text-[10px] font-bold text-slate-550 uppercase tracking-widest block mb-2 font-mono">Priority Tier Level</label>
-                <select
+              {/* <div>
+                <label className="text-[10px] font-bold text-slate-550 uppercase tracking-widest block mb-2 font-mono">Priority Tier Level</label> */}
+                {/* <select
                   value={priority}
                   onChange={(e) => setPriority(e.target.value)}
                   className="w-full bg-white border border-purple-100 text-slate-800 px-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors shadow-soft"
@@ -319,13 +319,13 @@ export default function ComplaintUpload() {
                   <option value="High">High Priority</option>
                   <option value="Medium">Medium Priority</option>
                   <option value="Low">Low Priority</option>
-                </select>
-              </div>
+                </select> */}
+              {/* </div> */}
             </div>
 
             {/* Row 4: Location Address */}
             <div>
-              <label className="text-[10px] font-bold text-slate-550 uppercase tracking-widest block mb-2 font-mono">Geo-Tagged Location / Landmarks</label>
+              {/* <label className="text-[10px] font-bold text-slate-550 uppercase tracking-widest block mb-2 font-mono">Geo-Tagged Location / Landmarks</label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                   <MapPin className="w-4 h-4" />
@@ -338,7 +338,7 @@ export default function ComplaintUpload() {
                   placeholder="e.g. Metro Pillar 114, Outer Ring Road, New Delhi"
                   className="w-full bg-white border border-purple-100 text-slate-800 pl-10 pr-4 py-3 rounded-xl text-xs focus:outline-none focus:border-brand-violet/50 transition-colors shadow-soft"
                 />
-              </div>
+              </div> */}
             </div>
 
             {/* Submission buttons */}
